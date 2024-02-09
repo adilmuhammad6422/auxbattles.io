@@ -1,2 +1,3 @@
 # auxbattles.io
-cs321 project :(
+cs321 project
+
