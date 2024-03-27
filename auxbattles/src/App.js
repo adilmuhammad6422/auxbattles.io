@@ -1,6 +1,6 @@
 // App.js
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route/*, Link*/ } from 'react-router-dom';
 import HomePage from './home';
 import GamePage from './game';
 import VotingPage from './voting';
@@ -9,11 +9,11 @@ function App() {
   return (
     <Router>
       <div>
-        <nav>
+        {/*<nav>
           <Link to="/">Home</Link> |{" "}
           <Link to="/game">Game</Link> |{" "}
           <Link to="/vote">Vote</Link>
-        </nav>
+  </nav>*/}
 
         {/* Routes setup */}
         <Routes>
