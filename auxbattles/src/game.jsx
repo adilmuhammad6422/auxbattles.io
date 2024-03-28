@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.css'
 
 function Game() {
   const [videoId1, setVideoId1] = useState('');
@@ -26,8 +27,8 @@ function Game() {
   // Inline YouTubeEmbed component functionality
   const YouTubeEmbed = ({ videoId }) => (
     <iframe
-      width="560"
-      height="315"
+      width="750"
+      height="350"
       src={`https://www.youtube.com/embed/${videoId}`}
       frameBorder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -38,16 +39,16 @@ function Game() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="url1" placeholder="Enter first YouTube URL" required />
+      <form onSubmit={handleSubmit} style={{ display: 'flex', alignItems: 'flex-end', marginLeft: 30 }}>
+        <input type="text" name="url1" placeholder="Enter first YouTube URL" required style={{marginRight: 450, marginTop: 25, justifyContent: 'right', backgroundColor: '#6B6373'}} />
         <div className="button-container">
-          <div className="button-wrapper left">
-            <button type="submit">Load Videos</button>
+          <div className="button-wrapper">
+            <button type = 'submit' href="#e6ccff" className="btn btn-primary" style={{ backgroundColor: '#6B27A4', borderColor: '#ff0000' }}>Add Video</button>
           </div>
         </div>
       </form>
-      <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px' }}>
-        <div style={{ flex: 1 }}>
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px', marginLeft: 25}}>
+        <div style={{ flex: 1}}>
           {videoId1 && <YouTubeEmbed videoId={videoId1} />}
         </div>
       </div>
