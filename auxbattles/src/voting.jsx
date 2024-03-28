@@ -1,7 +1,7 @@
 import React from "react";
 import Heading from './VotingComponents/Heading';
 import VotingCards from "./VotingComponents/VotingCards";
-import Chart from "./VotingComponents/Chart";
+import VotingChart from "./VotingComponents/VotingChart";
 
 const backgroundStyle = {
   minHeight: "100vh",
@@ -21,6 +21,7 @@ function Voting() {
                 <VotingCards />
                 <VotingCards />
             </div>
+            <VotingChart/>
         </div>
     );
 }

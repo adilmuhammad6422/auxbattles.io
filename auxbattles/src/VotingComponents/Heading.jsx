@@ -7,7 +7,7 @@ function Heading() {
         justifyContent: "center",
         color: "white",
         borderRadius: "1px",
-        fontSize: "2.2vw" // Adjust this value according to your preference
+        fontSize: "4vw" // Adjust this value according to your preference
     };
 
     return (
