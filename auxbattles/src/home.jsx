@@ -1,10 +1,10 @@
 import backgroundImage from "./futuristic.avif";
 import { Link } from "react-router-dom";
+import HomeCards from "./HomeComponents/HomeCards";
 
 function Home() {
   const backgroundStyle = {
     backgroundImage: `url(${backgroundImage})`,
-    backgroundSize: "cover",
     minHeight: "100vh",
     margin: 0,
     padding: 0
@@ -44,17 +44,14 @@ function Home() {
         <h3 style={{ fontFamily: "Courier New" }}>ATTLES</h3>
         <h1 style={{ fontFamily: "Courier New" }}>.IO</h1>
       </div>
-      <div style={buttonContainerStyle}>
-        <Link to="/">
-          <button style={buttonStyle}>Home</button>
-        </Link>
-        <Link to="/game">
-          <button style={buttonStyle}>Game</button>
-        </Link>
-        <Link to="/vote">
-          <button style={buttonStyle}>Vote</button>
-        </Link>
-      </div>
+
+      <div style={{ display: "flex", gap: "50px", justifyContent: "center" }}>
+              <HomeCards category = "category1"/>
+              <HomeCards category = "category2"/>
+              <HomeCards category = "category3"/>
+              <HomeCards category = "category4"/>
+              <HomeCards category = "category5"/>
+        </div>
     </div>
   );
 }

@@ -3,7 +3,11 @@ import axios from 'axios';
 import { BrowserRouter as Router, Routes, Route/*, Link*/ } from 'react-router-dom';
 import HomePage from './home';
 import GamePage from './game';
-import VotingPage from './voting';
+import Category1 from './VotingPages/category5';
+import Category3 from './VotingPages/category3';
+import Category4 from './VotingPages/category4';
+import Category5 from './VotingPages/category5';
+import Category2 from './VotingPages/category2';
 
 function App() {
   const [data, setData] = useState({});
@@ -37,7 +41,13 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/game" element={<GamePage />} />
-            <Route path="/vote" element={<VotingPage />} />
+            <Route path="/category1" element={<Category1 />} />
+            <Route path="/category2" element={<Category2/>} />
+            <Route path="/category3" element={<Category3 />} />
+            <Route path="/category4" element={<Category4 />} />
+            <Route path="/category5" element={<Category5 />} />
+
+
           </Routes>
         </div>
       </Router>

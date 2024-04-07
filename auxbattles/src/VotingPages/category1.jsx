@@ -1,7 +1,7 @@
 import React from "react";
-import Heading from './VotingComponents/Heading';
-import VotingCards from "./VotingComponents/VotingCards";
-import VotingChart from "./VotingComponents/VotingChart";
+import Heading from '../VotingComponents/Heading';
+import VotingCards from "../VotingComponents/VotingCards";
+import VotingChart from "../VotingComponents/VotingChart";
 
 const backgroundStyle = {
   minHeight: "100vh",
