@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import HomeChart from "./HomeChart";
 import { Link } from "react-router-dom";
 
-function HomeCards({category}) {
+function HomeCards({vote1, vote2, category}) {
     const cardStyle = {
         width: "18rem",
         height: "22rem",
@@ -22,7 +22,7 @@ function HomeCards({category}) {
         <div className="card" style={cardStyle}>
 
             <div className="card-body" >
-                <HomeChart />
+                <HomeChart vote1 = {vote1} vote2 = {vote2}/>
                 <Link to={`/${category}`}>Go to {category}</Link>
             </div>
         </div>
@@ -30,4 +30,5 @@ function HomeCards({category}) {
 }
 
 export default HomeCards;
+
 

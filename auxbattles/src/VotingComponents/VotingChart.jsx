@@ -2,7 +2,8 @@ import React from "react";
 import 'chart.js/auto';
 import { Pie } from "react-chartjs-2";
 
-function VotingChart() {
+function VotingChart(props) {
+
   const textStyle = {
     display: "flex",
     alignItems: "baseline",
@@ -16,7 +17,7 @@ function VotingChart() {
   const data = {
     labels: ['Option 1', 'Option 2'],
     datasets: [{
-      data: [300, 50],
+      data: [props.vote1, props.vote2],
       backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)'],
     }]
   };
@@ -30,3 +31,6 @@ function VotingChart() {
 }
 
 export default VotingChart;
+
+
+

@@ -1,3 +1,5 @@
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import backgroundImage from "./futuristic.avif";
 import { Link } from "react-router-dom";
 import HomeCards from "./HomeComponents/HomeCards";
@@ -35,6 +37,21 @@ function Home() {
     fontFamily: "Courier New",
   };
 
+  const [votes, setVotes] = useState([]);
+
+  useEffect(() => {
+    fetchVotes();
+  }, []);
+
+  const fetchVotes = async () => {
+    try {
+      const res = await axios.get('http://localhost:8080/votes');
+      setVotes(res.data);
+    } catch (error) {
+      console.error('Error fetching votes:', error);
+    }
+  };
+
   return (
     <div style={backgroundStyle}>
       <div style={textStyle}>
@@ -46,11 +63,11 @@ function Home() {
       </div>
 
       <div style={{ display: "flex", gap: "50px", justifyContent: "center" }}>
-              <HomeCards category = "category1"/>
-              <HomeCards category = "category2"/>
-              <HomeCards category = "category3"/>
-              <HomeCards category = "category4"/>
-              <HomeCards category = "category5"/>
+              <HomeCards vote1={votes[0]} vote2 = {votes[1]} category = "category1"/>
+              <HomeCards vote1={votes[2]} vote2 = {votes[3]} category = "category2"/>
+              <HomeCards vote1={votes[4]} vote2 = {votes[5]} category = "category3"/>
+              <HomeCards vote1={votes[6]} vote2 = {votes[7]} category = "category4"/>
+              <HomeCards vote1={votes[8]} vote2 = {votes[9]} category = "category5"/>
         </div>
     </div>
   );

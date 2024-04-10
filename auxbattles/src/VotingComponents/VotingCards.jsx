@@ -20,7 +20,6 @@ function VotingCards() {
             <Game />
             <div className="card-body">
                 <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#e6ccff" className="btn btn-primary" style={{ backgroundColor: '#ff0000', borderColor: '#ff0000' }}>Vote for Option 1</a>
             </div>
         </div>
     );
