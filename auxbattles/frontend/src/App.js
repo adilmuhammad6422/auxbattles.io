@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route/*, Link*/ } from 'react-router-d
 import HomePage from './home';
 import StartingPage from './starting'
 import GamePage from './game';
+import AdminPage from './admin'
 import Category1 from './VotingPages/category1';
 import Category3 from './VotingPages/category3';
 import Category4 from './VotingPages/category4';
