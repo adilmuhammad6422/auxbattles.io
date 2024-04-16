@@ -13,6 +13,21 @@ app.use(bodyParser.json());
 
 // Array to store votes
 let votes = [154, 24, 27, 100, 28, 10, 11, 8, 203, 60];
+let urls = ["https://www.youtube.com/watch?v=SqcY0GlETPk&t=923s", 24, 27, 100, 28, 10, 11, 8, 203, 60];
+
+// Routes
+app.post('/addurl', (req, res) => {
+  const { option } = req.body;
+  // Increment the count for the specified option
+  urls[option] = "";
+  res.send({ message: 'Vote received successfully' });
+});
+
+app.get('/urls', (req, res) => {
+  // Send the stored votes array back to the client
+  res.json(urls);
+});
+
 
 // Routes
 app.post('/vote', (req, res) => {

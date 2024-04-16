@@ -38,11 +38,11 @@ function App() {
             <Route path="/" element={<StartingPage />} />
             <Route path="/home" element={<HomePage />} />
             <Route path="/game" element={<GamePage />} />
-            <Route path="/category1" element={<Category1 />} />
-            <Route path="/category2" element={<Category2 />} />
-            <Route path="/category3" element={<Category3 />} />
-            <Route path="/category4" element={<Category4 />} />
-            <Route path="/category5" element={<Category5 />} />
+            <Route path="/Pop" element={<Category1 />} />
+            <Route path="/HipHop" element={<Category2 />} />
+            <Route path="/Rock" element={<Category3 />} />
+            <Route path="/Metal" element={<Category4 />} />
+            <Route path="/Indie" element={<Category5 />} />
 
 
           </Routes>
