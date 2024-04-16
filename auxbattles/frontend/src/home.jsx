@@ -63,11 +63,11 @@ function Home() {
       </div>
 
       <div style={{ display: "flex", gap: "50px", justifyContent: "center" }}>
-              <HomeCards vote1={votes[0]} vote2 = {votes[1]} category = "category1"/>
-              <HomeCards vote1={votes[2]} vote2 = {votes[3]} category = "category2"/>
-              <HomeCards vote1={votes[4]} vote2 = {votes[5]} category = "category3"/>
-              <HomeCards vote1={votes[6]} vote2 = {votes[7]} category = "category4"/>
-              <HomeCards vote1={votes[8]} vote2 = {votes[9]} category = "category5"/>
+              <HomeCards vote1={votes[0]} vote2 = {votes[1]} category = "Pop"/>
+              <HomeCards vote1={votes[2]} vote2 = {votes[3]} category = "HipHop"/>
+              <HomeCards vote1={votes[4]} vote2 = {votes[5]} category = "Rock"/>
+              <HomeCards vote1={votes[6]} vote2 = {votes[7]} category = "Metal"/>
+              <HomeCards vote1={votes[8]} vote2 = {votes[9]} category = "Indie"/>
         </div>
     </div>
   );
