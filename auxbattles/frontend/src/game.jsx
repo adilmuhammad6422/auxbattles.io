@@ -1,9 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function Game() {
+function Game(props) {
     const [videoId1, setVideoId1] = useState('');
 
+    useEffect(() => {
+        fetchUrl();
+    }, []);
+
+    const fetchUrl = async () => {
+        try {
+            const response = await axios.get('/urls');
+            console.log('Response:', response); // Log the response
+            const fetchedUrls = response.data;
+            if (Array.isArray(fetchedUrls) && fetchedUrls.length > props.index) {
+                const url = fetchedUrls[props.index];
+                setVideoId1(extractVideoID(url));
+            } else {
+                console.error('Error: URLs array is empty or index is out of bounds');
+            }
+        } catch (error) {
+            console.error('Error fetching URL:', error);
+        }
+    };
+    
+    
     // Function to extract video ID from YouTube URL
     const extractVideoID = (url) => {
         const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
@@ -18,15 +40,19 @@ function Game() {
     };
 
     // Handle form submit
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const url1 = e.target.elements.url1.value;
-        setVideoId1(extractVideoID(url1));
+        try {
+            await axios.post('/addurl', { index: props.index, newUrl: url1 });
+            setVideoId1(extractVideoID(url1));
+        } catch (error) {
+            console.error('Error adding URL:', error);
+        }
     };
 
-// Inline YouTubeEmbed component functionality
+    // Inline YouTubeEmbed component functionality
     const YouTubeEmbed = ({ videoId }) => (
-        // Removed the max-width style to allow the video to be as wide as the column allows
         <div className="embed-responsive embed-responsive-16by9">
             <iframe
                 className="embed-responsive-item"
@@ -38,19 +64,19 @@ function Game() {
     );
 
     return (
-        <div className="container-fluid p-4">  {/* Use container-fluid for full width */}
-            <form onSubmit={handleSubmit} className="row mb-3">  {/* Use mb-* for bottom margin */}
-                <div className="col-12 col-lg">  {/* Use full width on small screens and flexible width on larger screens */}
+        <div className="container-fluid p-4">
+            <form onSubmit={handleSubmit} className="row mb-3">
+                <div className="col-12 col-lg mb-2 mb-lg-0">
                     <input
                         type="text"
                         name="url1"
                         placeholder="Enter first YouTube URL"
                         required
-                        className="form-control me-2 mb-2 mb-lg-0"  // mb-* classes to add bottom margin on small screens
+                        className="form-control me-2"
                     />
                 </div>
-                <div className="col-12 col-lg-auto">  {/* Auto width for the button on large screens */}
-                    <button type='submit' className="btn btn-primary w-100">  {/* w-100 to make the button full width */}
+                <div className="col-12 col-lg-auto">
+                    <button type='submit' className="btn btn-primary w-100">
                         Add Video
                     </button>
                 </div>

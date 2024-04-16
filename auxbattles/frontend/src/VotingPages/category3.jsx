@@ -53,8 +53,8 @@ function Category3() {
     <div style={backgroundStyle}>
       <Heading />
       <div style={{ display: "flex", gap: "20px" }}>
-        <VotingCards />
-        <VotingCards />
+        <VotingCards index  = {4}/>
+        <VotingCards index  = {5}/>
       </div>
       <VotingChart vote1={votes[4]} vote2={votes[5]} />
 

@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.cbc512fe.css",
-    "main.js": "/static/js/main.14a3b787.js",
+    "main.css": "/static/css/main.18332774.css",
+    "main.js": "/static/js/main.04d5a138.js",
     "static/media/futuristic.avif": "/static/media/futuristic.57593a7bc7ffb0624681.avif",
     "index.html": "/index.html",
-    "main.cbc512fe.css.map": "/static/css/main.cbc512fe.css.map",
-    "main.14a3b787.js.map": "/static/js/main.14a3b787.js.map"
+    "main.18332774.css.map": "/static/css/main.18332774.css.map",
+    "main.04d5a138.js.map": "/static/js/main.04d5a138.js.map"
   },
   "entrypoints": [
-    "static/css/main.cbc512fe.css",
-    "static/js/main.14a3b787.js"
+    "static/css/main.18332774.css",
+    "static/js/main.04d5a138.js"
   ]
 }
