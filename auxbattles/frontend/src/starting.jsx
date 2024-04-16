@@ -4,7 +4,7 @@ import backgroundImage from "./futuristic.avif";
 import { Link } from "react-router-dom";
 import HomeCards from "./HomeComponents/HomeCards";
 
-function Home() {
+function Start() {
   const backgroundStyle = {
     backgroundColor: "#330066",
     minHeight: "100vh",
@@ -37,18 +37,27 @@ function Home() {
     fontFamily: "Courier New",
   };
 
-  const [votes, setVotes] = useState([]);
+  const [gameActive, setGameActive] = useState(false);
 
   useEffect(() => {
-    fetchVotes();
+    checkGameStatus();
   }, []);
 
-  const fetchVotes = async () => {
+  const checkGameStatus = async () => {
     try {
-      const res = await axios.get('/votes');
-      setVotes(res.data);
+      const response = await axios.get('/api/game-status');
+      setGameActive(response.data.active); // assuming 'active' is a boolean returned by the API
     } catch (error) {
-      console.error('Error fetching votes:', error);
+      console.error('Failed to fetch game status:', error);
+    }
+  };
+
+  const startGame = async () => {
+    try {
+      await axios.post('/api/start-game');
+      setGameActive(true);
+    } catch (error) {
+      console.error('Failed to start game:', error);
     }
   };
 
@@ -61,16 +70,19 @@ function Home() {
         <h3 style={{ fontFamily: "Courier New" }}>ATTLES</h3>
         <h1 style={{ fontFamily: "Courier New" }}>.IO</h1>
       </div>
+      <div style={buttonContainerStyle}>
+        {gameActive ? (
+          <button disabled style={{ ...buttonStyle, opacity: 0.5 }}>Start a Game</button>
+        ) : (
+          <button onClick={startGame} style={buttonStyle}>Start a Game</button>
+        )}
 
-      <div style={{ display: "flex", gap: "50px", justifyContent: "center" }}>
-              <HomeCards vote1={votes[0]} vote2 = {votes[1]} category = "category1"/>
-              <HomeCards vote1={votes[2]} vote2 = {votes[3]} category = "category2"/>
-              <HomeCards vote1={votes[4]} vote2 = {votes[5]} category = "category3"/>
-              <HomeCards vote1={votes[6]} vote2 = {votes[7]} category = "category4"/>
-              <HomeCards vote1={votes[8]} vote2 = {votes[9]} category = "category5"/>
+        <Link to="/home" style={{ textDecoration: 'none' }}>
+          <button style={buttonStyle}>Join Game</button>
+        </Link>
         </div>
     </div>
   );
 }
 
-export default Home;
+export default Start;
