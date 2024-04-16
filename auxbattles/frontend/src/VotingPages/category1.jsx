@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
 import Heading from '../VotingComponents/Heading';
 import VotingCards from "../VotingComponents/VotingCards";
 import VotingChart from "../VotingComponents/VotingChart";
-
 
 const backgroundStyle = {
   minHeight: "100vh",
@@ -25,12 +23,12 @@ function Category1() {
 
   const fetchVotes = async () => {
     try {
-      const res = await axios.get('/votes');
-      setVotes(res.data);
+        const response = await axios.get('/votes');
+        setVotes(response.data);  // Verify that response.data contains the correct format
     } catch (error) {
-      console.error('Error fetching votes:', error);
+        console.error('Error fetching votes:', error);
     }
-  };
+};
 
   const handleVote = async (option) => {
     try {
@@ -40,6 +38,16 @@ function Category1() {
       console.error('Error voting:', error);
     }
   };
+
+  const clearVotes = async () => {
+    try {
+        await axios.post('/reset-category1-votes');
+        fetchVotes();  // Make sure this is called to re-fetch updated vote counts
+    } catch (error) {
+        console.error('Error clearing votes:', error);
+    }
+};
+
 
   return (
     <div style={backgroundStyle}>
@@ -54,12 +62,9 @@ function Category1() {
         <button onClick={() => handleVote(0)} className="btn btn-primary" style={{ backgroundColor: 'rgb(255, 99, 132)', borderColor: '#ff0000' }}>Vote for Option 1</button>
         <button onClick={() => handleVote(1)} className="btn btn-primary" style={{ backgroundColor: 'rgb(54, 162, 235)', borderColor: '#ff0000' }}>Vote for Option 2</button>
       </div>
+      <button onClick={clearVotes} className="btn btn-danger" style={{ marginTop: '20px' }}>Clear Votes</button>
     </div>
   );
 }
 
 export default Category1;
-
-
-
-
