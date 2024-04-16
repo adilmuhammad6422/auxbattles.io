@@ -71,12 +71,6 @@ function Start() {
         <h1 style={{ fontFamily: "Courier New" }}>.IO</h1>
       </div>
       <div style={buttonContainerStyle}>
-        {gameActive ? (
-          <button disabled style={{ ...buttonStyle, opacity: 0.5 }}>Start a Game</button>
-        ) : (
-          <button onClick={startGame} style={buttonStyle}>Start a Game</button>
-        )}
-
         <Link to="/home" style={{ textDecoration: 'none' }}>
           <button style={buttonStyle}>Join Game</button>
         </Link>
