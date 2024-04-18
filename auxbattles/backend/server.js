@@ -5,9 +5,9 @@ const path = require('path'); // Import the 'path' module
 const app = express();
 const PORT = process.env.PORT || 8080; // Use environment port or default to 8080
 
-app.use(express.static('build'));
-
 app.use(cors());
+
+app.use(express.static('build'));
 
 app.use(bodyParser.json());
 

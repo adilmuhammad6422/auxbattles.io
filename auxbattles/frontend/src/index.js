@@ -9,7 +9,7 @@ import axios from 'axios';
 const isLocalhost = window.location.hostname === 'localhost';
 const baseURL = isLocalhost
   ? 'http://localhost:8080' // Replace YOUR_PORT_NUMBER_HERE with the port your backend is running on
-  : 'https://backend-service-dot-red-welder-418620.ue.r.appspot.com/';
+  : 'https://red-welder-418620.ue.r.appspot.com/';
 
 
 axios.defaults.baseURL = baseURL;

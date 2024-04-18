@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Routes, Route/*, Link*/ } from 'react-router-dom';
 import HomePage from './home';
-import StartingPage from './starting'
 import GamePage from './game';
-import AdminPage from './admin'
 import Category1 from './VotingPages/category1';
 import Category3 from './VotingPages/category3';
 import Category4 from './VotingPages/category4';
@@ -35,8 +33,7 @@ function App() {
         <div>
           {/* Routes setup */}
           <Routes>
-            <Route path="/" element={<StartingPage />} />
-            <Route path="/home" element={<HomePage />} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/game" element={<GamePage />} />
             <Route path="/Pop" element={<Category1 />} />
             <Route path="/HipHop" element={<Category2 />} />
