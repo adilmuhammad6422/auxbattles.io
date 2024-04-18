@@ -42,13 +42,39 @@ app.get('/urls', (req, res) => {
   res.json(urls);
 });
 
-// Reset votes for a specific category
-app.post('/reset-category-votes', (req, res) => {
-  const { category } = req.body;
-  const start = (category - 1) * 2; // Calculate start index for the category
-  votes[start] = 0;  // Reset the first vote count to 0
-  votes[start + 1] = 0;  // Reset the second vote count to 0
-  res.json({ message: `Category ${category} votes have been reset successfully` });
+// Assuming 'votes' is your array storing vote counts
+app.post('/reset-category1-votes', (req, res) => {
+  votes[0] = 0;  // Reset the first vote count to 0
+  votes[1] = 0;  // Reset the second vote count to 0
+  res.json({ message: 'Specific votes have been reset successfully' });
+});
+
+// Assuming 'votes' is your array storing vote counts
+app.post('/reset-category2-votes', (req, res) => {
+  votes[2] = 0;  // Reset the first vote count to 0
+  votes[3] = 0;  // Reset the second vote count to 0
+  res.json({ message: 'Specific votes have been reset successfully' });
+});
+
+// Assuming 'votes' is your array storing vote counts
+app.post('/reset-category3-votes', (req, res) => {
+  votes[4] = 0;  // Reset the first vote count to 0
+  votes[5] = 0;  // Reset the second vote count to 0
+  res.json({ message: 'Specific votes have been reset successfully' });
+});
+
+// Assuming 'votes' is your array storing vote counts
+app.post('/reset-category4-votes', (req, res) => {
+  votes[6] = 0;  // Reset the first vote count to 0
+  votes[7] = 0;  // Reset the second vote count to 0
+  res.json({ message: 'Specific votes have been reset successfully' });
+});
+
+// Assuming 'votes' is your array storing vote counts
+app.post('/reset-category5-votes', (req, res) => {
+  votes[8] = 0;  // Reset the first vote count to 0
+  votes[9] = 0;  // Reset the second vote count to 0
+  res.json({ message: 'Specific votes have been reset successfully' });
 });
 
 // Routes for voting
